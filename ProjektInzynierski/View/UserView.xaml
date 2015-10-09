@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <Grid DataContext="{Binding ElementName=UserControl, Mode=OneWay}" >
-        <Button x:Name="button" HorizontalAlignment="Left" Margin="85,100,0,0" VerticalAlignment="Top" Width="50" Height="25" Content="{Binding Cos, ElementName=UserControl}" />
+        <Button x:Name="button" HorizontalAlignment="Left" Margin="195,130,0,0" VerticalAlignment="Top" Width="50" Height="25" Content="{Binding Cos, ElementName=UserControl}" />
 
     </Grid>
 </UserControl>

@@ -6,10 +6,75 @@
              xmlns:local="clr-namespace:ProjektInzynierski.View" x:Name="UserControl"
              x:Class="ProjektInzynierski.View.UserView"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="364" d:DesignWidth="606">
 
     <Grid DataContext="{Binding ElementName=UserControl, Mode=OneWay}" >
-        <Button x:Name="button" HorizontalAlignment="Left" Margin="195,130,0,0" VerticalAlignment="Top" Width="50" Height="25" Content="{Binding Cos, ElementName=UserControl}" />
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[0]}"/>
+        <Rectangle Grid.Column="1" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[1]}"/>
+        <Rectangle Grid.Column="2" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[2]}"/>
+        <Rectangle Grid.Column="3" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[3]}"/>
+        <Rectangle Grid.Column="4" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[4]}"/>
+        <Rectangle Grid.Column="5" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[5]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[6]}"/>
 
+        <Rectangle Grid.Column="6" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[7]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[8]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[9]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[10]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[11]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[12]}"/>
+
+        <Rectangle Grid.Column="5" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[13]}"/>
+        <Rectangle Grid.Column="4" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[14]}"/>
+        <Rectangle Grid.Column="3" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[15]}"/>
+        <Rectangle Grid.Column="2" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[16]}"/>
+        <Rectangle Grid.Column="1" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[17]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[18]}"/>
+
+        <Rectangle Grid.Column="0" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[19]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[20]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[21]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[22]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[23]}"/>
+
+
+        <TextBlock Grid.Column="3" Grid.Row="3" Text="{Binding resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <Button Content="↑" />
+            <Button Content="↓" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="5">
+            <Button Content="↑" />
+            <Button Content="↓" />
+        </StackPanel>
+
+        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left">
+            <Button Content="←" />
+            <Button Content="→"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Column="5" Grid.Row="3" HorizontalAlignment="Right">
+            <Button Content="←"/>
+            <Button Content="→" />
+        </WrapPanel>
     </Grid>
 </UserControl>

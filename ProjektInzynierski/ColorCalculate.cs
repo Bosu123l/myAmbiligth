@@ -65,7 +65,7 @@ namespace ProjektInzynierski
             }
 
             long x, y;
-            long step = 5;
+            long step = 10;
             long position;
 
             y = MarginVertical;

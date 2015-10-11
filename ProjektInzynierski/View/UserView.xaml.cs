@@ -28,6 +28,9 @@ namespace ProjektInzynierski.View
         private List<string> _colorOfScreen;
 
         private Thickness _horizontalMargin;
+
+        private PortCom _portCom;
+
         public Thickness HorizontalMargin
         {
             get
@@ -141,15 +144,16 @@ namespace ProjektInzynierski.View
             _colorCalculate = new ColorCalculate(_screenCapture);
 
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-
-
-
+            _portCom=new PortCom("COM5", 230400);
+            _portCom.OpenPort();
+        
             _timer.Start();
         }
 
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             ColorOfScreen = _colorCalculate.Calculate();
+            _portCom.SendColors(ColorOfScreen);
         }
         protected void NotifyPropertyChanged(string propertyName)
         {

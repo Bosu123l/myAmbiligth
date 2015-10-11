@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjektInzynierski.View"
 
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"  Height="350" Width="525">
     <Grid>
        <local:UserView></local:UserView>
     </Grid> 

@@ -6,7 +6,7 @@ namespace ProjektInzynierski
     public class ScreenCapture
     {
         private readonly Device _device;
-        private Surface _surface;
+       
         public ScreenCapture()
         {
             PresentParameters _presentParameters =new PresentParameters();
@@ -18,7 +18,7 @@ namespace ProjektInzynierski
         public Surface CaptureScreen()
         {
             
-            _surface = Surface.CreateOffscreenPlain(_device,Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) , Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight), Format.A8R8G8B8, Pool.Scratch);
+            Surface _surface = Surface.CreateOffscreenPlain(_device,Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) , Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight), Format.A8R8G8B8, Pool.Scratch);
             _device.GetFrontBufferData(0, _surface);
             return _surface;
         }

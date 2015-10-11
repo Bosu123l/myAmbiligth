@@ -11,7 +11,16 @@ namespace ProjektInzynierski
     {
         private ScreenCapture _screenCapture;
 
-
+        public int MarginHorizontal
+        {
+            get;
+            set;
+        }
+        public int MarginVertical
+        {
+            get;
+            set;
+        }
 
         private const int Bpp = 4;
         private const int NumberOfLedInLine = 7;
@@ -19,14 +28,22 @@ namespace ProjektInzynierski
 
         private List<Collection<long>> ListOfPositions = new List<Collection<long>>();
 
-        public ColorCalculate(ScreenCapture screenCapture)
+        public void CalculatePosition(int marginHorizontal, int marginVertical)
         {
-            if (screenCapture == null)
-                throw new ArgumentNullException("screenCapture null");
-            _screenCapture = screenCapture;
-          
+            if (marginHorizontal < 8)
+            {
+                MarginHorizontal = MarginHorizontal;
+            }
+            if (MarginVertical < 8)
+            {
+                MarginVertical = MarginVertical;
+            }
 
+            MarginHorizontal = marginHorizontal;
+            MarginVertical = marginVertical;
 
+            ListOfPositions = null;
+            ListOfPositions = new List<Collection<long>>();
 
             for (int i = 0; i < NumberOfLeds; i++)
             {
@@ -35,24 +52,24 @@ namespace ProjektInzynierski
 
             int margin = 8;
 
-            int _widthScreenSize = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) - margin;
-            int _heightScreenSize = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight) - margin;
+            int _widthScreenSize = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) - MarginHorizontal;
+            int _heightScreenSize = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight) - MarginVertical;
 
             int[] _collumnPosition = new int[7];
             int[] _rowPosition = new int[7];
 
             for (int i = 0; i < NumberOfLedInLine; i++)
             {
-                _collumnPosition[i] = ((_widthScreenSize - margin) * i) / NumberOfLedInLine + margin;
-                _rowPosition[i] = ((_heightScreenSize - margin) * i) / NumberOfLedInLine + margin;
+                _collumnPosition[i] = ((_widthScreenSize - MarginHorizontal) * i) / NumberOfLedInLine + MarginHorizontal;
+                _rowPosition[i] = ((_heightScreenSize - MarginVertical) * i) / NumberOfLedInLine + MarginVertical;
             }
 
             long x, y;
             long step = 5;
             long position;
 
-            y = margin;
-            for (x = margin; x < _widthScreenSize; x += step)
+            y = MarginVertical;
+            for (x = MarginHorizontal; x < _widthScreenSize; x += step)
             {
                 position = (y * Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) + x) * Bpp;
 
@@ -77,7 +94,7 @@ namespace ProjektInzynierski
 
             y = _heightScreenSize;
 
-            for (x = margin; x < _widthScreenSize; x += step)
+            for (x = MarginHorizontal; x < _widthScreenSize; x += step)
             {
                 position = (y * Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) + x) * Bpp;
 
@@ -102,8 +119,8 @@ namespace ProjektInzynierski
 
 
 
-            x = margin;
-            for (y = margin + 1; y < _heightScreenSize; y += step)
+            x = MarginHorizontal;
+            for (y = MarginVertical + 1; y < _heightScreenSize; y += step)
             {
                 position = (y * Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) + x) * Bpp;
 
@@ -138,7 +155,7 @@ namespace ProjektInzynierski
 
             x = _widthScreenSize;
 
-            for (y = margin + 1; y < _heightScreenSize; y += step)
+            for (y = MarginVertical + 1; y < _heightScreenSize; y += step)
             {
                 position = (y * Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth) + x) * Bpp;
 
@@ -162,6 +179,18 @@ namespace ProjektInzynierski
                     ListOfPositions[6 + z].Add(position);
                 }
             }
+        }
+
+        public ColorCalculate(ScreenCapture screenCapture)
+        {
+            if (screenCapture == null)
+                throw new ArgumentNullException("screenCapture null");
+            _screenCapture = screenCapture;
+
+
+            CalculatePosition(8, 8);
+
+
 
         }
 
@@ -176,7 +205,7 @@ namespace ProjektInzynierski
 
             foreach (Collection<long> collection in ListOfPositions)
             {
-                var buff = AvgColor(dataStream,collection).ToString();
+                var buff = AvgColor(dataStream, collection).ToString();
                 //          string color
                 listOfColors.Add(buff);
             }
@@ -186,7 +215,7 @@ namespace ProjektInzynierski
         }
         private System.Windows.Media.Color AvgColor(DataStream dataStream, Collection<long> positions)
         {
-      
+
             byte[] bu = new byte[4];
             int r = 0;
             int g = 0;
@@ -203,6 +232,8 @@ namespace ProjektInzynierski
                 i++;
                 dataStream.Position = 0;
             }
+            
+            
             byte red = (byte)(r / i);
             byte green = (byte)(g / i);
             byte blue = (byte)(b / i);

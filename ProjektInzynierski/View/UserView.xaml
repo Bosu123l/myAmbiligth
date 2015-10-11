@@ -28,38 +28,38 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[0]}"/>
-        <Rectangle Grid.Column="1" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[1]}"/>
-        <Rectangle Grid.Column="2" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[2]}"/>
-        <Rectangle Grid.Column="3" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[3]}"/>
-        <Rectangle Grid.Column="4" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[4]}"/>
-        <Rectangle Grid.Column="5" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[5]}"/>
+        <Rectangle Grid.Column="1" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[1]}" Margin="{Binding VerticalMargin}"/>
+        <Rectangle Grid.Column="2" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[2]}" Margin="{Binding VerticalMargin}"/>
+        <Rectangle Grid.Column="3" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[3]}" Margin="{Binding VerticalMargin}"/>
+        <Rectangle Grid.Column="4" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[4]}" Margin="{Binding VerticalMargin}"/>
+        <Rectangle Grid.Column="5" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[5]}" Margin="{Binding VerticalMargin}"/>
         <Rectangle Grid.Column="6" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[6]}"/>
 
-        <Rectangle Grid.Column="6" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[7]}"/>
-        <Rectangle Grid.Column="6" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[8]}"/>
-        <Rectangle Grid.Column="6" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[9]}"/>
-        <Rectangle Grid.Column="6" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[10]}"/>
-        <Rectangle Grid.Column="6" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[11]}"/>
+        <Rectangle Grid.Column="6" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[7]}" Margin="{Binding HorizontalMarginOposit}"/>
+        <Rectangle Grid.Column="6" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[8]}" Margin="{Binding HorizontalMarginOposit}"/>
+        <Rectangle Grid.Column="6" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[9]}" Margin="{Binding HorizontalMarginOposit}"/>
+        <Rectangle Grid.Column="6" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[10]}" Margin="{Binding HorizontalMarginOposit}"/>
+        <Rectangle Grid.Column="6" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[11]}" Margin="{Binding HorizontalMarginOposit}"/>
         <Rectangle Grid.Column="6" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[12]}"/>
 
-        <Rectangle Grid.Column="5" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[13]}"/>
-        <Rectangle Grid.Column="4" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[14]}"/>
-        <Rectangle Grid.Column="3" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[15]}"/>
-        <Rectangle Grid.Column="2" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[16]}"/>
-        <Rectangle Grid.Column="1" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[17]}"/>
+        <Rectangle Grid.Column="5" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[13]}" Margin="{Binding VerticalMarginOposit}"/>
+        <Rectangle Grid.Column="4" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[14]}" Margin="{Binding VerticalMarginOposit}"/>
+        <Rectangle Grid.Column="3" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[15]}" Margin="{Binding VerticalMarginOposit}"/>
+        <Rectangle Grid.Column="2" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[16]}" Margin="{Binding VerticalMarginOposit}"/>
+        <Rectangle Grid.Column="1" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[17]}" Margin="{Binding VerticalMarginOposit}"/>
         <Rectangle Grid.Column="0" Grid.Row="6" Stroke="Black" Fill="{Binding ColorOfScreen[18]}"/>
 
-        <Rectangle Grid.Column="0" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[19]}"/>
-        <Rectangle Grid.Column="0" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[20]}"/>
-        <Rectangle Grid.Column="0" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[21]}"/>
-        <Rectangle Grid.Column="0" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[22]}"/>
-        <Rectangle Grid.Column="0" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[23]}"/>
+        <Rectangle Grid.Column="0" Grid.Row="5" Stroke="Black" Fill="{Binding ColorOfScreen[19]}" Margin="{Binding HorizontalMargin}"/>
+        <Rectangle Grid.Column="0" Grid.Row="4" Stroke="Black" Fill="{Binding ColorOfScreen[20]}" Margin="{Binding HorizontalMargin}"/>
+        <Rectangle Grid.Column="0" Grid.Row="3" Stroke="Black" Fill="{Binding ColorOfScreen[21]}" Margin="{Binding HorizontalMargin}"/>
+        <Rectangle Grid.Column="0" Grid.Row="2" Stroke="Black" Fill="{Binding ColorOfScreen[22]}" Margin="{Binding HorizontalMargin}"/>
+        <Rectangle Grid.Column="0" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[23]}" Margin="{Binding HorizontalMargin}"/>
 
 
         <TextBlock Grid.Column="3" Grid.Row="3" Text="{Binding resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="3" Grid.Row="1">
-            <Button Content="↑" />
-            <Button Content="↓" />
+            <Button Content="↑" Click="Button_Click_1" />
+            <Button Content="↓" Click="Button_Click" />
         </StackPanel>
 
         <StackPanel Grid.Column="3" Grid.Row="5">
@@ -68,8 +68,8 @@
         </StackPanel>
 
         <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left">
-            <Button Content="←" />
-            <Button Content="→"/>
+            <Button Content="←" Click="Button_Click_3" />
+            <Button Content="→" Click="Button_Click_2"/>
         </WrapPanel>
 
         <WrapPanel Grid.Column="5" Grid.Row="3" HorizontalAlignment="Right">

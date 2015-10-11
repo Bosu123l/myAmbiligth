@@ -26,6 +26,71 @@ namespace ProjektInzynierski.View
         private ScreenCapture _screenCapture;
         private ColorCalculate _colorCalculate;
         private List<string> _colorOfScreen;
+
+        private Thickness _horizontalMargin;
+        public Thickness HorizontalMargin
+        {
+            get
+            {
+                return _horizontalMargin;
+            }
+            set
+            {
+                if (_horizontalMargin != value)
+                {
+                    _horizontalMargin = value;
+                    NotifyPropertyChanged("HorizontalMargin");
+                }
+            }
+        }
+        private Thickness _verticalMargin;
+        public Thickness VerticalMargin
+        {
+            get
+            {
+                return _verticalMargin;
+            }
+            set
+            {
+                if (_verticalMargin != value)
+                {
+                    _verticalMargin = value;
+                    NotifyPropertyChanged("VerticalMargin");
+                }
+            }
+        }
+        private Thickness _horizontalMarginOposit;
+        public Thickness HorizontalMarginOposit
+        {
+            get
+            {
+                return _horizontalMarginOposit;
+            }
+            set
+            {
+                if (_horizontalMarginOposit != value)
+                {
+                    _horizontalMarginOposit = value;
+                    NotifyPropertyChanged("HorizontalMarginOposit");
+                }
+            }
+        }
+        private Thickness _verticalMarginOposit;
+        public Thickness VerticalMarginOposit
+        {
+            get
+            {
+                return _verticalMarginOposit;
+            }
+            set
+            {
+                if (_verticalMarginOposit != value)
+                {
+                    _verticalMarginOposit = value;
+                    NotifyPropertyChanged("VerticalMarginOposit");
+                }
+            }
+        }
         public List<string> ColorOfScreen
         {
             get
@@ -68,6 +133,7 @@ namespace ProjektInzynierski.View
 
         public UserView()
         {
+            InitializeComponent();
             ColorOfScreen = new List<string>();
             _timer = new Timer(100);//1000 =1s
             _timer.Elapsed += _timer_Elapsed;
@@ -77,7 +143,7 @@ namespace ProjektInzynierski.View
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
 
 
-            InitializeComponent();
+
             _timer.Start();
         }
 
@@ -94,5 +160,54 @@ namespace ProjektInzynierski.View
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var top = VerticalMargin.Top;
+            var bottom = VerticalMargin.Bottom;
+            top += 1;
+            bottom -= 1;
+            _colorCalculate.CalculatePosition(8, (int)top);
+            VerticalMarginOposit = new Thickness(0, (top * -1), 0, (bottom * -1));
+            VerticalMargin = new Thickness(0, top, 0, bottom);
+            
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var top = VerticalMargin.Top;
+            var bottom = VerticalMargin.Bottom;
+            top -= 1;
+            bottom += 1;
+            _colorCalculate.CalculatePosition(8, (int)top);
+            VerticalMarginOposit = new Thickness(0, (top * -1), 0, (bottom * -1));
+            VerticalMargin = new Thickness(0, top, 0, bottom);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var left = HorizontalMargin.Left;
+            var right = HorizontalMargin.Right;
+            left += 1;
+            right -= 1;
+            _colorCalculate.CalculatePosition((int)left, 8);
+            HorizontalMarginOposit = new Thickness((left*-1), 0, (right*-1), 0);
+            HorizontalMargin = new Thickness(left, 0, right, 0);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+
+            var left = HorizontalMargin.Left;
+            var right = HorizontalMargin.Right;
+            left -= 1;
+            right += 1;
+            _colorCalculate.CalculatePosition((int)left, 8);
+            HorizontalMarginOposit = new Thickness((left * -1), 0, (right * -1), 0);
+            HorizontalMargin = new Thickness(left, 0, right, 0);
+
+        }
     }
 }

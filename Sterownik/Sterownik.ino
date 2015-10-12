@@ -9,6 +9,11 @@
 #define PIN 5
 #define NumLED 24
 
+#define RED(arg) (a>>16)
+#define GREEN(arg) ((a>>8) & 0xff)
+#define BLUE(arg) (a & 0xff)
+
+
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NumLED, PIN, NEO_GRB + NEO_KHZ800);
 String odebrane;
 void setup()
@@ -23,41 +28,7 @@ void setup()
 void loop()
 {
 
-	int licznik = 0;
-	int tablica[3];
-	int dioda = 0;
-	if (Serial.available() > 0)
-	{
-		odebrane = Serial.readString();
-
-		int przecinek = 0;
-		for (int i = 0; i < odebrane.length(); i++)
-		{
-			String buffor;
-			if (odebrane[i] == ',')
-			{
-				przecinek++;
-				if (przecinek == 3)
-				{
-					if (dioda > 24)
-					{
-						dioda = 0;
-					}
-					przecinek = 0;
-					strip.setPixelColor(dioda, tablica[0], tablica[1], tablica[2]);
-					dioda++;
-				}
-				else
-				{
-					buffor += odebrane[i];
-				}
-				tablica[przecinek] = buffor.toInt();
-
-			}
-			
-		}
-		Serial.write("Oki\n");
-		/*for (int i = 0; i < odebrane.length(); i += 8)
+		for (int i = 0; i < odebrane.length(); i += 8)
 		{
 			String Receive;
 			for (int j = i; j < i + 8; j++)
@@ -75,6 +46,6 @@ void loop()
 
 		}
 		strip.show();
-		Serial.write("oki");*/
-	}
+		Serial.write("oki");
+	
 }

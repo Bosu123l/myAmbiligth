@@ -144,7 +144,7 @@ namespace ProjektInzynierski.View
             _colorCalculate = new ColorCalculate(_screenCapture);
 
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-            _portCom=new PortCom("COM5", 230400);
+            _portCom=new PortCom("COM5", 115200);
             _portCom.OpenPort();
         
             _timer.Start();

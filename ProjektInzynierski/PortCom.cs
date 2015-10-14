@@ -16,10 +16,15 @@ namespace ProjektInzynierski
             _serialPort.DataReceived += _serialPort_DataReceived;
         }
 
+        ~PortCom()
+        {
+            ClosePort();
+        }
+
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            var test = _serialPort.ReadLine();
-            if (test == "Oki")
+
+            if (_serialPort.ReadLine() == "Oki")
             {
                 flaga = true;
             }
@@ -30,27 +35,32 @@ namespace ProjektInzynierski
             _serialPort.Open();
         }
 
-        public void ClosePort()
+        private void ClosePort()
         {
             _serialPort.Close(); ;
         }
+
         public void SendColors(List<string> listOfColors)
         {
             if (flaga)
             {
+                byte[] tablicaBytes = new byte[24 * 3];
+                int licznik = 0;
                 string ToSend = String.Empty;
                 foreach (string color in listOfColors)
                 {
-                    //    var test = color.Replace("#", "");
+                    var test = color.Replace("#", "");
                     Color buff = (Color)ColorConverter.ConvertFromString(color);
-                    ToSend += buff.R + "," + buff.G + "," + buff.B + "\n";
+
+                    tablicaBytes[licznik++] = buff.R;
+                    tablicaBytes[licznik++] = buff.G;
+                    tablicaBytes[licznik++] = buff.B;
+
+
 
                 }
-                //int i = 0;
-                //var test = ToSend.Replace("#", "");
-                // System.Drawing.Color.FromArgb()
 
-                _serialPort.WriteLine(ToSend);
+                _serialPort.Write(tablicaBytes, 0, tablicaBytes.Length);
 
                 flaga = false;
             }

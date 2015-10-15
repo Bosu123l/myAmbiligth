@@ -20,7 +20,7 @@ namespace ProjektInzynierski
         {
             ClosePort();
         }
-
+      
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
 

@@ -6,19 +6,8 @@
         xmlns:local="clr-namespace:ProjektInzynierski.View"
 
         mc:Ignorable="d"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         Title="Ambilight"  Height="350" Width="525"  Background="Black">
-=======
-        Title="MainWindow"  Height="350" Width="525">
->>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
-=======
-        Title="MainWindow"  Height="350" Width="525" Closing="Window_Closing">
->>>>>>> parent of ab6cf44... Wizuzalizacjja
-=======
-        Title="MainWindow"  Height="350" Width="525">
->>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
     <Grid>
        <local:UserView></local:UserView>
     </Grid> 

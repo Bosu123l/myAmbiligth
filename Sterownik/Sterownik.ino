@@ -7,15 +7,15 @@
 // the setup function runs once when you press reset or power the board
 #include "Adafruit_NeoPixel-master\Adafruit_NeoPixel.h"
 #define PIN 5
-#define NumLED 24
-
-#define RED(arg) (a>>16)
-#define GREEN(arg) ((a>>8) & 0xff)
-#define BLUE(arg) (a & 0xff)
+#define NUM_LED 24
+#define NUM_DATA 72
 
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NumLED, PIN, NEO_GRB + NEO_KHZ800);
-String odebrane;
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LED, PIN, NEO_GRB + NEO_KHZ800);
+
+uint8_t led_color[NUM_DATA];
+short index = 0;
+
 void setup()
 {
 	strip.begin();
@@ -24,28 +24,29 @@ void setup()
 	Serial.begin(115200);
 }
 
-// the loop function runs over and over again until power down or reset
 void loop()
 {
-
-		for (int i = 0; i < odebrane.length(); i += 8)
+	if (Serial.available() > 0)
+	{
+		led_color[index++] = (uint8_t)Serial.read();
+		if (index >= NUM_DATA)
 		{
-			String Receive;
-			for (int j = i; j < i + 8; j++)
-			{
-				Receive += odebrane[j];
-			}
-			if (licznik > 24)
-				licznik = 0;
-			long number = (long)strtol(&Receive[2], NULL, 16);
-			int r = number >> 16;
-			int g = number >> 8 & 0xFF;
-			int b = number & 0xFF;
-			strip.setPixelColor(licznik, r, g, b);
-			licznik++;
+			index = 0;
 
+			for (int i = 0; i < NUM_LED; i++)
+			{
+				int led_index = i * 3;
+				strip.setPixelColor(i, strip.Color(led_color[led_index], led_color[led_index + 1], led_color[led_index + 2]));
+				//  led_color[led_index] = led_color[led_index + 1] = led_color[led_index + 2] = 0;
+			}
+			strip.show();
+
+			Serial.write("Oki\n");
 		}
-		strip.show();
-		Serial.write("oki");
-	
+
+
+	}
+
+
+
 }

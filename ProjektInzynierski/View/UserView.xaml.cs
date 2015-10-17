@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -132,44 +133,33 @@ namespace ProjektInzynierski.View
             }
         }
 
-
+        private  List<string> _portNames;
 
         public UserView()
         {
             InitializeComponent();
             ColorOfScreen = new List<string>();
-            _timer = new Timer(100);//1000 =1s
+            _timer = new Timer(120);//1000 =1s
             _timer.Elapsed += _timer_Elapsed;
             _screenCapture = new ScreenCapture();
             _colorCalculate = new ColorCalculate(_screenCapture);
-<<<<<<< HEAD
-            PortNames=new List<string>();
+
+            _portNames=new List<string>();
             foreach(string srt in SerialPort.GetPortNames())
             {
-                PortNames.Add(srt);
+                _portNames.Add(srt);
             }
          
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-<<<<<<< HEAD
-           
+            int index = 0;
+          
                 _portCom = new PortCom("COM5", 115200);
                 _portCom.OpenPort();
-            
           
-            
+               
 
-=======
-            _portCom=new PortCom("COM5", 230400);
-            _portCom.OpenPort();
         
->>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
-=======
 
-            resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-            _portCom=new PortCom("COM5", 230400);
-            _portCom.OpenPort();
-        
->>>>>>> parent of ab6cf44... Wizuzalizacjja
             _timer.Start();
         }
 

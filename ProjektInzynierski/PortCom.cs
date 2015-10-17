@@ -1,42 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.IO.Ports;
+using System.Timers;
 using System.Windows.Documents;
 using System.Windows.Media;
-
+using System.Diagnostics;
 namespace ProjektInzynierski
 {
     public class PortCom
     {
-        private SerialPort _serialPort;
-        private bool flaga = true;
-        public PortCom(string PortName, int BoundRate)
+        private readonly SerialPort _serialPort;
+        private bool _flaga = true;
+        private int _duration = 0;
+        public PortCom(string portName, int boundRate)
         {
-            _serialPort = new SerialPort(PortName, BoundRate);
+            _serialPort = new SerialPort(portName, boundRate);
             _serialPort.DataReceived += _serialPort_DataReceived;
+
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         ~PortCom()
         {
+           
             ClosePort();
         }
-<<<<<<< HEAD
-      
-=======
->>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
-=======
 
->>>>>>> parent of ab6cf44... Wizuzalizacjja
-=======
->>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var test = _serialPort.ReadLine();
             if (test == "Oki")
             {
-                flaga = true;
+                _flaga = true;
             }
         }
 
@@ -47,32 +42,45 @@ namespace ProjektInzynierski
 
         public void ClosePort()
         {
-            _serialPort.Close(); ;
+            _serialPort.Close();
+            
         }
+
         public void SendColors(List<string> listOfColors)
         {
-            if (flaga)
+            if (_flaga)
             {
+                byte[] arrayOfBytes = new byte[24*3];
+              
+                int couter = 0;
                 string ToSend = String.Empty;
                 foreach (string color in listOfColors)
                 {
-                    //    var test = color.Replace("#", "");
-                    Color buff = (Color)ColorConverter.ConvertFromString(color);
-                    ToSend += buff.R + "," + buff.G + "," + buff.B + "\n";
+
+                    Color buff = (Color) ColorConverter.ConvertFromString(color);
+
+                    arrayOfBytes[couter++] = buff.R;
+                    arrayOfBytes[couter++] = buff.G;
+                    arrayOfBytes[couter++] = buff.B;
+
+
 
                 }
-                //int i = 0;
-                //var test = ToSend.Replace("#", "");
-                // System.Drawing.Color.FromArgb()
 
-                _serialPort.WriteLine(ToSend);
+                _serialPort.Write(arrayOfBytes, 0, arrayOfBytes.Length);
 
-                flaga = false;
+                _flaga = false;
             }
-
-
-
+            else
+            {
+                _duration++;
+                if (_duration > 200)
+                {
+                    _flaga = true;
+                    Debug.WriteLine("stracił połaczenie");
+                }
+                    
+            }
         }
     }
 }
-//#FF313134,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF3A3834,#FF303034,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF292B28,#FF1A221F,#FF1C2322,#FF202423,#FF1B2220,#FF1A2724,#FF36332B,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF2D2D30,#FF2D2D30,

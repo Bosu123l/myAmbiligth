@@ -166,7 +166,7 @@ namespace ProjektInzynierski.View
 =======
 
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-            _portCom=new PortCom("COM5", 115200);
+            _portCom=new PortCom("COM5", 230400);
             _portCom.OpenPort();
         
 >>>>>>> parent of ab6cf44... Wizuzalizacjja

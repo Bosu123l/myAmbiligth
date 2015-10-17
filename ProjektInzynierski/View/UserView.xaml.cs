@@ -152,6 +152,7 @@ namespace ProjektInzynierski.View
             }
          
             resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
+<<<<<<< HEAD
            
                 _portCom = new PortCom("COM5", 115200);
                 _portCom.OpenPort();
@@ -159,6 +160,11 @@ namespace ProjektInzynierski.View
           
             
 
+=======
+            _portCom=new PortCom("COM5", 230400);
+            _portCom.OpenPort();
+        
+>>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
             _timer.Start();
         }
 

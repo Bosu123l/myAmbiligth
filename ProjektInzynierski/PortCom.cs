@@ -16,15 +16,18 @@ namespace ProjektInzynierski
             _serialPort.DataReceived += _serialPort_DataReceived;
         }
 
+<<<<<<< HEAD
         ~PortCom()
         {
             ClosePort();
         }
       
+=======
+>>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
-            if (_serialPort.ReadLine() == "Oki")
+            var test = _serialPort.ReadLine();
+            if (test == "Oki")
             {
                 flaga = true;
             }
@@ -35,32 +38,27 @@ namespace ProjektInzynierski
             _serialPort.Open();
         }
 
-        private void ClosePort()
+        public void ClosePort()
         {
             _serialPort.Close(); ;
         }
-
         public void SendColors(List<string> listOfColors)
         {
             if (flaga)
             {
-                byte[] tablicaBytes = new byte[24 * 3];
-                int licznik = 0;
                 string ToSend = String.Empty;
                 foreach (string color in listOfColors)
                 {
-                    var test = color.Replace("#", "");
+                    //    var test = color.Replace("#", "");
                     Color buff = (Color)ColorConverter.ConvertFromString(color);
-
-                    tablicaBytes[licznik++] = buff.R;
-                    tablicaBytes[licznik++] = buff.G;
-                    tablicaBytes[licznik++] = buff.B;
-
-
+                    ToSend += buff.R + "," + buff.G + "," + buff.B + "\n";
 
                 }
+                //int i = 0;
+                //var test = ToSend.Replace("#", "");
+                // System.Drawing.Color.FromArgb()
 
-                _serialPort.Write(tablicaBytes, 0, tablicaBytes.Length);
+                _serialPort.WriteLine(ToSend);
 
                 flaga = false;
             }

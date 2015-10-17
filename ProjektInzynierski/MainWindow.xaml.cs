@@ -24,10 +24,5 @@ namespace ProjektInzynierski
         {
             InitializeComponent();
         }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
     }
 }

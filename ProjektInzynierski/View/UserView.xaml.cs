@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO.Ports;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace ProjektInzynierski.View
 {
@@ -18,6 +28,8 @@ namespace ProjektInzynierski.View
         private List<string> _colorOfScreen;
 
         private Thickness _horizontalMargin;
+
+        private PortCom _portCom;
 
         public Thickness HorizontalMargin
         {
@@ -34,9 +46,7 @@ namespace ProjektInzynierski.View
                 }
             }
         }
-
         private Thickness _verticalMargin;
-
         public Thickness VerticalMargin
         {
             get
@@ -52,9 +62,7 @@ namespace ProjektInzynierski.View
                 }
             }
         }
-
         private Thickness _horizontalMarginOposit;
-
         public Thickness HorizontalMarginOposit
         {
             get
@@ -70,9 +78,7 @@ namespace ProjektInzynierski.View
                 }
             }
         }
-
         private Thickness _verticalMarginOposit;
-
         public Thickness VerticalMarginOposit
         {
             get
@@ -88,7 +94,6 @@ namespace ProjektInzynierski.View
                 }
             }
         }
-
         public List<string> ColorOfScreen
         {
             get
@@ -104,17 +109,13 @@ namespace ProjektInzynierski.View
                 }
             }
         }
-
         private Timer _timer;
-
         public string resolution
         {
             get;
             set;
         }
-
         private Thickness _marginTop;
-
         public Thickness MarginTop
         {
             get
@@ -131,20 +132,17 @@ namespace ProjektInzynierski.View
             }
         }
 
-        public List<string> PortNames
-        {
-            get;
-            set;
-        }
-        private PortCom _portCom;
+
+
         public UserView()
         {
             InitializeComponent();
             ColorOfScreen = new List<string>();
-            _timer = new Timer(150);//1000 =1s
+            _timer = new Timer(100);//1000 =1s
             _timer.Elapsed += _timer_Elapsed;
             _screenCapture = new ScreenCapture();
             _colorCalculate = new ColorCalculate(_screenCapture);
+<<<<<<< HEAD
             PortNames=new List<string>();
             foreach(string srt in SerialPort.GetPortNames())
             {
@@ -165,15 +163,21 @@ namespace ProjektInzynierski.View
             _portCom.OpenPort();
         
 >>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
+=======
+
+            resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
+            _portCom=new PortCom("COM5", 115200);
+            _portCom.OpenPort();
+        
+>>>>>>> parent of ab6cf44... Wizuzalizacjja
             _timer.Start();
         }
 
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             ColorOfScreen = _colorCalculate.Calculate();
-            //  _portCom.SendColors(ColorOfScreen);
+            _portCom.SendColors(ColorOfScreen);
         }
-
         protected void NotifyPropertyChanged(string propertyName)
         {
             var tempHandler = PropertyChanged;
@@ -182,7 +186,6 @@ namespace ProjektInzynierski.View
                 tempHandler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -194,6 +197,8 @@ namespace ProjektInzynierski.View
             _colorCalculate.CalculatePosition(8, (int)top);
             VerticalMarginOposit = new Thickness(0, (top * -1), 0, (bottom * -1));
             VerticalMargin = new Thickness(0, top, 0, bottom);
+            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -214,12 +219,14 @@ namespace ProjektInzynierski.View
             left += 1;
             right -= 1;
             _colorCalculate.CalculatePosition((int)left, 8);
-            HorizontalMarginOposit = new Thickness((left * -1), 0, (right * -1), 0);
+            HorizontalMarginOposit = new Thickness((left*-1), 0, (right*-1), 0);
             HorizontalMargin = new Thickness(left, 0, right, 0);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+
+
             var left = HorizontalMargin.Left;
             var right = HorizontalMargin.Right;
             left -= 1;
@@ -227,6 +234,7 @@ namespace ProjektInzynierski.View
             _colorCalculate.CalculatePosition((int)left, 8);
             HorizontalMarginOposit = new Thickness((left * -1), 0, (right * -1), 0);
             HorizontalMargin = new Thickness(left, 0, right, 0);
+
         }
     }
 }

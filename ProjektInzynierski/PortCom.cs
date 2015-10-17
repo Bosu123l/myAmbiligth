@@ -21,9 +21,13 @@ namespace ProjektInzynierski
         {
             ClosePort();
         }
+<<<<<<< HEAD
       
 =======
 >>>>>>> parent of 7461568... działajacy program i kom,unikjujacy sie
+=======
+
+>>>>>>> parent of ab6cf44... Wizuzalizacjja
         private void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var test = _serialPort.ReadLine();

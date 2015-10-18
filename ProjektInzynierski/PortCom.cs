@@ -50,10 +50,13 @@ namespace ProjektInzynierski
         {
             if (_flaga)
             {
-                byte[] arrayOfBytes = new byte[24*3];
+                byte[] arrayOfBytes = new byte[(24*3)];
               
                 int couter = 0;
                 string ToSend = String.Empty;
+
+            
+
                 foreach (string color in listOfColors)
                 {
 
@@ -74,7 +77,7 @@ namespace ProjektInzynierski
             else
             {
                 _duration++;
-                if (_duration > 200)
+                if (_duration > 20)
                 {
                     _flaga = true;
                     Debug.WriteLine("stracił połaczenie");

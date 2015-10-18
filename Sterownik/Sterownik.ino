@@ -32,21 +32,17 @@ void loop()
 		if (index >= NUM_DATA)
 		{
 			index = 0;
-
-			for (int i = 0; i < NUM_LED; i++)
-			{
-				int led_index = i * 3;
-				strip.setPixelColor(i, strip.Color(led_color[led_index], led_color[led_index + 1], led_color[led_index + 2]));
-				//  led_color[led_index] = led_color[led_index + 1] = led_color[led_index + 2] = 0;
-			}
-			strip.show();
-
-			Serial.write("Oki\n");
+		
+			
+				for (int i = 0; i < NUM_LED; i++)
+				{
+					int led_index = i * 3;
+					strip.setPixelColor(i, strip.Color(led_color[led_index], led_color[led_index + 1], led_color[led_index + 2]));
+					//  led_color[led_index] = led_color[led_index + 1] = led_color[led_index + 2] = 0;
+				}
+				strip.show();
+				Serial.write("Oki\n");
+			
 		}
-
-
 	}
-
-
-
 }

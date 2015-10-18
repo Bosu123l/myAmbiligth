@@ -7,7 +7,7 @@
 
         mc:Ignorable="d"
 
-        Title="Ambilight"  Height="350" Width="525"  Background="Black">
+        Title="Ambilight"  Height="350" Width="525"  Background="Black" Icon="Icon.ico">
     <Grid>
        <local:UserView></local:UserView>
     </Grid> 

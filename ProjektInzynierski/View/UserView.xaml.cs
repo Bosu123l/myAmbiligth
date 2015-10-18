@@ -139,7 +139,7 @@ namespace ProjektInzynierski.View
         {
             InitializeComponent();
             ColorOfScreen = new List<string>();
-            _timer = new Timer(120);//1000 =1s
+            _timer = new Timer(100);//1000 =1s
             _timer.Elapsed += _timer_Elapsed;
             _screenCapture = new ScreenCapture();
             _colorCalculate = new ColorCalculate(_screenCapture);

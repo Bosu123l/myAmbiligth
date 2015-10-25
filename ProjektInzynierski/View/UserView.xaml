@@ -27,8 +27,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[0]}"/>
-        <Rectangle Grid.Column="1" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[1]}" Margin="{Binding VerticalMargin}"/>
+        <Rectangle Grid.Column="0" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[0]}"  />
+        <Rectangle Grid.Column="1" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[1]}" Margin = "{Binding VerticalMargin}" />
+
         <Rectangle Grid.Column="2" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[2]}" Margin="{Binding VerticalMargin}"/>
         <Rectangle Grid.Column="3" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[3]}" Margin="{Binding VerticalMargin}"/>
         <Rectangle Grid.Column="4" Grid.Row="0" Stroke="Black" Fill="{Binding ColorOfScreen[4]}" Margin="{Binding VerticalMargin}"/>
@@ -56,25 +57,17 @@
         <Rectangle Grid.Column="0" Grid.Row="1" Stroke="Black" Fill="{Binding ColorOfScreen[23]}" Margin="{Binding HorizontalMargin}"/>
 
 
-        <TextBlock Grid.Column="3" Grid.Row="3" Text="{Binding resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <StackPanel Grid.Column="3" Grid.Row="1">
-            <Button Content="↑" Click="Button_Click_1" />
-            <Button Content="↓" Click="Button_Click" />
-        </StackPanel>
+        <TextBlock Grid.Column="3" Grid.Row="3" Text="{Binding Resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <StackPanel Grid.Column="3" Grid.Row="5">
-            <Button Content="↑" />
-            <Button Content="↓" />
-        </StackPanel>
 
-        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left">
-            <Button Content="←" Click="Button_Click_3" />
-            <Button Content="→" Click="Button_Click_2"/>
-        </WrapPanel>
 
-        <WrapPanel Grid.Column="5" Grid.Row="3" HorizontalAlignment="Right">
-            <Button Content="←"/>
-            <Button Content="→" />
-        </WrapPanel>
+
+        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"/>
+        <Button Content="↑" Click="Button_Click_1" Grid.Column="3" Grid.Row="2" Margin="0,10,0,0" />
+        <Button Content="↓" Click="Button_Click" Grid.Column="3" Grid.Row="4" Margin="0,0,0,10" />
+        <Button Content="←" Click="Button_Click_3" Margin="10,0,0,0" Grid.Column="2" Grid.Row="3" />
+        <Button Content="→" Click="Button_Click_2" Margin="0,0,10,0" Grid.Column="4" Grid.Row="3"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Resolution}" VerticalAlignment="Top" Height="32" Width="65" Foreground="White" TextAlignment="Center"/>
+
     </Grid>
 </UserControl>

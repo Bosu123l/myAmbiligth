@@ -7,8 +7,9 @@
 
         mc:Ignorable="d"
 
-        Title="Ambilight"  Height="350" Width="525"  Background="Black" Icon="Icon.ico">
+        Title="Ambilight"  Height="350" Width="525"  Background="Black" Icon="Icon.ico" StateChanged="Window_StateChanged">
     <Grid>
        <local:UserView></local:UserView>
-    </Grid> 
+    </Grid>
+    
 </Window>

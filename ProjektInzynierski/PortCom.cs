@@ -70,7 +70,7 @@ namespace ProjektInzynierski
 
                 }
 
-                _serialPort.Write(arrayOfBytes, 0, arrayOfBytes.Length);
+            //    _serialPort.Write(arrayOfBytes, 0, arrayOfBytes.Length);
 
                 _flaga = false;
             }

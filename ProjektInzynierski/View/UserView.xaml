@@ -8,6 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="364" d:DesignWidth="606">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ProjektInzynierski;component/Resouces/Theme.xaml"/>
+                <ResourceDictionary Source="/ProjektInzynierski;component/Resouces/Icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
     <Grid DataContext="{Binding ElementName=UserControl, Mode=OneWay}" >
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -63,11 +73,162 @@
 
 
         <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"/>
-        <Button Content="↑" Click="Button_Click_1" Grid.Column="3" Grid.Row="2" Margin="0,10,0,0" />
-        <Button Content="↓" Click="Button_Click" Grid.Column="3" Grid.Row="4" Margin="0,0,0,10" />
-        <Button Content="←" Click="Button_Click_3" Margin="10,0,0,0" Grid.Column="2" Grid.Row="3" />
-        <Button Content="→" Click="Button_Click_2" Margin="0,0,10,0" Grid.Column="4" Grid.Row="3"/>
+
         <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Resolution}" VerticalAlignment="Top" Height="32" Width="65" Foreground="White" TextAlignment="Center"/>
 
+        <Grid Column="3" Grid.Row="2" Width="80" Height="80" RenderTransformOrigin="0.5,0.5"  Margin="0,26,83,36" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="3" >
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="Up" Click="Button_Click_1"   Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <Viewbox>
+                        <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-45"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="Black" Stretch="Fill" Width="9.594" Height="15.073" Canvas.Left="5.151" Canvas.Top="14.39" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Path Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" Fill="Black" Canvas.Left="5.151" Stretch="Fill" Width="10.304" Height="15" Canvas.Top="-0.61" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Canvas>
+
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button Name="Down" Click="Button_Click" Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <Viewbox>
+                        <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-45"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="Black" Stretch="Fill" Width="9.594" Height="15.073" Canvas.Left="5.151" Canvas.Top="12.507" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Path Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" Fill="Black" Canvas.Left="5.151" Stretch="Fill" Width="10.304" Height="15" Canvas.Top="-2.493" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Canvas>
+
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button Name="Left" Click="Button_Click_3"   Grid.Row="1" Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <Viewbox>
+                        <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-45"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="Black" Stretch="Fill" Width="9.594" Height="15.073" Canvas.Left="15.093" Canvas.Top="4.449" RenderTransformOrigin="0.5,0.5" />
+                            <Path Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" Fill="Black" Canvas.Left="-1.211" Stretch="Fill" Width="10.304" Height="15" Canvas.Top="4.449" RenderTransformOrigin="0.5,0.5" />
+                        </Canvas>
+
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button Name="Rigth"  Click="Button_Click_2"   Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonStyle}">
+                <Button.Content>
+                    <Viewbox>
+                        <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
+                            <Canvas.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-45"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Canvas.RenderTransform>
+                            <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="Black" Stretch="Fill" Width="9.594" Height="15.073" Canvas.Left="13.21" Canvas.Top="4.449" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-180"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Path Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" Fill="Black" Canvas.Left="1.29" Stretch="Fill" Width="10.304" Height="15" Canvas.Top="4.293" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-180"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Canvas>
+
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+        <ToggleButton x:Name="ToggleButton" Style="{StaticResource ToggleButton}" Grid.Column="5" Grid.Row="1" Margin="0,0,86,0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="62" Height="33" VerticalAlignment="Top">
+           
+           
+
+        </ToggleButton>
     </Grid>
 </UserControl>

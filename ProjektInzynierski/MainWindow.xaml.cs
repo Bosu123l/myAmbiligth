@@ -27,7 +27,7 @@ namespace ProjektInzynierski
         {
             InitializeComponent();
             MyNotifyIcon = new System.Windows.Forms.NotifyIcon();
-            MyNotifyIcon.Icon = new System.Drawing.Icon(@"Iconx32.ico");
+          //  MyNotifyIcon.Icon = new System.Drawing.Icon(@"group");
             MyNotifyIcon.MouseDoubleClick +=  new System.Windows.Forms.MouseEventHandler
                     (MyNotifyIcon_MouseDoubleClick);
            

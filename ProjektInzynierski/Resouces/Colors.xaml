@@ -1,0 +1,125 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   >
+
+
+    <SolidColorBrush x:Key="ForegroundBrush" Color="#FF3F3F3F" />
+
+    <SolidColorBrush x:Key="ValidationToolTipTemplateShadowBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="ValidationErrorElement" Color="#FFF55E7F" />
+
+
+
+
+    <SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="#FFE7E7E7"></SolidColorBrush>
+    <SolidColorBrush x:Key="ButtonHoverBorderBrush" Color="#FF858585"></SolidColorBrush>
+    <SolidColorBrush x:Key="ButtonPressedBorderBrush" Color="#FF512DA8"></SolidColorBrush>
+    <SolidColorBrush x:Key="DisabledVisualElement" Color="#99FFFFFF"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="ButtonPressedBackgroundBrush" Color="#FF512DA8"></SolidColorBrush>
+    <SolidColorBrush x:Key="LightForegroundBrush" Color="#FFFFFFFF"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="TransparentBrush" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CheckBoxBorderBrush" Color="#FFB9B9B9" />
+    <SolidColorBrush x:Key="CheckBoxBackgroundlBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CheckBoxHoverBorderBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="CheckBoxHoverBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CheckBoxPressedBorderBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="CheckBoxFocusedBorderBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="CheckBoxInvalidUnfocusedBorderBrush" Color="#FFF55E7F" />
+
+    <SolidColorBrush x:Key="CheckBoxInvalidFocusedBorderBrush" Color="#FFD0284C" />
+    <SolidColorBrush x:Key="CheckBoxIndeterminateCheckBackgroundBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="CheckBoxCheckBackgroundBrush" Color="#FF512DA8" />
+
+    <SolidColorBrush x:Key="CheckBoxPressedBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CheckBoxFocusedBackgroundBrush" Color="#FFFFFFFF" />
+
+    <SolidColorBrush x:Key="CheckBoxInvalidUnfocusedBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CheckBoxInvalidFocusedBackgroundBrush" Color="#FFFFFFFF" />
+
+    <!--textbox brush-->
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#FFB9B9B9" />
+    <SolidColorBrush x:Key="TextBoxHoverBackgroundBrush" Color="#FFF9F9F9" />
+    <SolidColorBrush x:Key="TextBoxHoverBorderBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="TextBoxFocusedBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="TextBoxReadOnlyBackgroundBrush" Color="#33565656" />
+    <SolidColorBrush x:Key="TextBoxSelectionBackgroundBrush" Color="#FF512DA8" Opacity="0.4" />
+    <SolidColorBrush x:Key="TextBoxSelectionForegroundBrush" Color="#FF006481" />
+    <!--textbox brush end-->
+    <!-- Scrollbar Brushes -->
+    <SolidColorBrush x:Key="HScrollbarThumbBackgroundBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="VScrollbarThumbBackgroundBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="ScrollbarPageButtonArrowBackgroundBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="ScrollbarPageButtonArrowPressedBackgroundBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="ScrollbarPageButtonArrowHoverBackgroundBrush" Color="#FF565656" />
+    <SolidColorBrush x:Key="ScrollbarPageButtonArrowDisabledBackgroundBrush" Color="#FFD7D7D7" />
+    <SolidColorBrush x:Key="VScrollbarThumbHoverBackgroundBrush" Color="#FF565656" />
+    <SolidColorBrush x:Key="HScrollbarThumbHoverBackgroundBrush" Color="#FF565656" />
+    <SolidColorBrush x:Key="VScrollbarThumbPressedBackgroundBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="HScrollbarThumbPressedBackgroundBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="VScrollbarThumbDisabledBackgroundBrush" Color="#FFD7D7D7" />
+    <SolidColorBrush x:Key="HScrollbarThumbDisabledBackgroundBrush" Color="#FFD7D7D7" />
+    <SolidColorBrush x:Key="ScrollbarDisabledBackgroundBrush" Color="#FFF4F4F4" />
+    <SolidColorBrush x:Key="ScrollbarBackgroundBrush" Color="#FFFFFFFF" />
+
+    <!--  GridSplitter Brushes -->
+    <SolidColorBrush x:Key="GridSplitterBackgroundBrush" Color="#FFF9F9F9" />
+    <SolidColorBrush x:Key="GridSplitterBorderBrush" Color="#FFB9B9B9" />
+    <SolidColorBrush x:Key="GridSplitterHoverBackgroundBrush" Color="#FFE7E7E7" />
+    <SolidColorBrush x:Key="GridSplitterHoverBorderBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="GridSplitterPressedBackgroundBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="GridSplitterFocusedBorderBrush" Color="#FF512DA8" />
+
+    <!-- Visual Glyphs brushes -->
+    <SolidColorBrush x:Key="GlyphBackgroundBrush" Color="#FF858585" />
+    <SolidColorBrush x:Key="GlyphHoverBackgroundBrush" Color="#FF565656" />
+    <SolidColorBrush x:Key="GlyphPressedBackgroundBrush" Color="#FF512DA8" />
+    <SolidColorBrush x:Key="GlyphDisabledBackgroundBrush" Color="#FFD7D7D7" />
+
+    <ControlTemplate x:Key="TextBoxValidationToolTipTemplate">
+        <Grid x:Name="Root" Margin="5,0" Opacity="0" RenderTransformOrigin="0,0">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="xform" X="-25" />
+            </Grid.RenderTransform>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="OpenStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0" />
+                        <VisualTransition GeneratedDuration="0:0:0.2" To="Open">
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase Amplitude=".3" EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root" />
+                            </Storyboard>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Closed">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Open">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="xform" />
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Root" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border Background="{StaticResource ValidationToolTipTemplateShadowBrush}" Margin="4,4,-4,-4" Opacity="0.02" />
+            <Border Background="{StaticResource ValidationToolTipTemplateShadowBrush}" Margin="3,3,-3,-3" Opacity="0.08" />
+            <Border Background="{StaticResource ValidationToolTipTemplateShadowBrush}" Margin="2,2,-2,-2" Opacity="0.15" />
+            <Border Background="{StaticResource ValidationToolTipTemplateShadowBrush}" Margin="1,1,-1,-1" Opacity="0.21" />
+            <Border Background="{StaticResource ValidationErrorElement}" />
+            <Border >
+                <TextBlock Foreground="{StaticResource LightForegroundBrush}" MaxWidth="250" Margin="8,4,8,4" TextWrapping="Wrap" Text="{Binding (Validation.Errors).CurrentItem.ErrorContent}" UseLayoutRounding="false" />
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+</ResourceDictionary>

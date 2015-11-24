@@ -232,8 +232,8 @@ namespace ProjektInzynierski
                 i++;
                 dataStream.Position = 0;
             }
-            
-            
+
+
             byte red = (byte)(r / i);
             byte green = (byte)(g / i);
             byte blue = (byte)(b / i);

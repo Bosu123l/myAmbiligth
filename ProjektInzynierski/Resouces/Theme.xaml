@@ -177,12 +177,12 @@
                                 <VisualState x:Name="Unfocused" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Rectangle x:Name="Bd" Fill="#FFF9F9F9" Stroke="#FFB9B9B9" StrokeThickness="1" />
+                        <Ellipse x:Name="Bd" Fill="#FFF9F9F9" Stroke="#FFB9B9B9" StrokeThickness="1" />
                         <ContentControl x:Name="ContentControl" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter x:Name="contentPresenter" />
                         </ContentControl>
-                        <Rectangle x:Name="FocusedVisualElement" Stroke="{StaticResource ButtonPressedBorderBrush}" Visibility="Collapsed" StrokeThickness="2" />
-                        <Rectangle x:Name="DisabledVisualElement" Fill="{StaticResource DisabledVisualElement}" Visibility="Collapsed" />
+                        <Ellipse x:Name="FocusedVisualElement" Stroke="{StaticResource ButtonPressedBorderBrush}" Visibility="Collapsed" StrokeThickness="2" />
+                        <Ellipse x:Name="DisabledVisualElement" Fill="{StaticResource DisabledVisualElement}" Visibility="Collapsed" />
                     </Grid>
                 </ControlTemplate>
                

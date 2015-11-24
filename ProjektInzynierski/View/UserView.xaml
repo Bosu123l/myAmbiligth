@@ -93,7 +93,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Name="Up" Click="Button_Click_1"   Style="{StaticResource ButtonStyle}">
+            <Button Name="Up" Click="Button_Click_1"   Style="{StaticResource ButtonStyle}" Margin="-21,-21,21,21">
                 <Button.Content>
                     <Viewbox>
                         <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
@@ -130,7 +130,7 @@
                     </Viewbox>
                 </Button.Content>
             </Button>
-            <Button Name="Down" Click="Button_Click" Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}">
+            <Button Name="Down" Click="Button_Click" Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}" Margin="21,21,-21,-21">
                 <Button.Content>
                     <Viewbox>
                         <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
@@ -167,7 +167,7 @@
                     </Viewbox>
                 </Button.Content>
             </Button>
-            <Button Name="Left" Click="Button_Click_3"   Grid.Row="1" Style="{StaticResource ButtonStyle}">
+            <Button Name="Left" Click="Button_Click_3"   Grid.Row="1" Style="{StaticResource ButtonStyle}" Margin="-21,21,21,-21">
                 <Button.Content>
                     <Viewbox>
                         <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
@@ -186,7 +186,7 @@
                     </Viewbox>
                 </Button.Content>
             </Button>
-            <Button Name="Rigth"  Click="Button_Click_2"   Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonStyle}">
+            <Button Name="Rigth"  Click="Button_Click_2"   Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonStyle}" Margin="21,-21,-21,21">
                 <Button.Content>
                     <Viewbox>
                         <Canvas Width="24" Height="24" RenderTransformOrigin="0.5,0.5">
@@ -223,12 +223,17 @@
                     </Viewbox>
                 </Button.Content>
             </Button>
+            <ToggleButton  x:Name="ToggleButton" Style="{StaticResource ToggleButton}" Margin="0,12,12,0" HorizontalAlignment="Right" Width="55" Height="56" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+                <ToggleButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ToggleButton.RenderTransform>
+            </ToggleButton>
 
         </Grid>
-        <ToggleButton x:Name="ToggleButton" Style="{StaticResource ToggleButton}" Grid.Column="5" Grid.Row="1" Margin="0,0,86,0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="62" Height="33" VerticalAlignment="Top">
-           
-           
-
-        </ToggleButton>
     </Grid>
 </UserControl>

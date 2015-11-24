@@ -11,7 +11,7 @@ namespace ProjektInzynierski
     public class PortCom
     {
         private readonly SerialPort _serialPort;
-        private bool _flaga = true;
+        private bool _flag = true;
         private int _duration = 0;
         public PortCom(string portName, int boundRate)
         {
@@ -31,7 +31,7 @@ namespace ProjektInzynierski
             var test = _serialPort.ReadLine();
             if (test == "Oki")
             {
-                _flaga = true;
+                _flag = true;
             }
         }
 
@@ -48,38 +48,35 @@ namespace ProjektInzynierski
 
         public void SendColors(List<string> listOfColors)
         {
-            if (_flaga)
+            if (_flag)
             {
                 byte[] arrayOfBytes = new byte[(24*3)];
               
                 int couter = 0;
-                string ToSend = String.Empty;
-
-            
-
+        
                 foreach (string color in listOfColors)
                 {
+                    var convertFromString = ColorConverter.ConvertFromString(color);
+                    if (convertFromString != null)
+                    {
+                        Color buff = (Color) convertFromString;
 
-                    Color buff = (Color) ColorConverter.ConvertFromString(color);
-
-                    arrayOfBytes[couter++] = buff.R;
-                    arrayOfBytes[couter++] = buff.G;
-                    arrayOfBytes[couter++] = buff.B;
-
-
-
+                        arrayOfBytes[couter++] = buff.R;
+                        arrayOfBytes[couter++] = buff.G;
+                        arrayOfBytes[couter++] = buff.B;
+                    }
                 }
 
-            //    _serialPort.Write(arrayOfBytes, 0, arrayOfBytes.Length);
+                //    _serialPort.Write(arrayOfBytes, 0, arrayOfBytes.Length);
 
-                _flaga = false;
+                _flag = false;
             }
             else
             {
                 _duration++;
                 if (_duration > 20)
                 {
-                    _flaga = true;
+                    _flag = true;
                     Debug.WriteLine("stracił połaczenie");
                 }
                     

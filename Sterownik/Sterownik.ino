@@ -24,6 +24,36 @@ void setup()
 	Serial.begin(115200);
 }
 
+int generateCheckSum(byte arrayOfBytes[])
+{
+	int sum = 0;
+	int checkSum = 0;
+	int Length = NUM_DATA;
+	bool flaga = true;
+	for (int i = Length - 2; i >= 0; i--)
+	{
+		int temp = arrayOfBytes[i];
+		if (flaga)
+		{
+			temp *= 2;
+			if (temp > 9)
+			{
+				temp -= 9;
+			}
+		}
+		sum += temp;
+		flaga = !flaga;
+	}
+	int modulo = sum % 10;
+	if (modulo > 0)
+	{
+		modulo = 10 - modulo;
+	}
+	checkSum = modulo;
+	return checkSum;
+}
+
+
 void loop()
 {
 	if (Serial.available() > 0)
@@ -41,7 +71,9 @@ void loop()
 				strip.setPixelColor(i, strip.Color(led_color[led_index], led_color[led_index + 1], led_color[led_index + 2]));
 			}
 			strip.show();
-			Serial.write("Oki\n");
+			int checkSum = generateCheckSum(led_color);
+			String stringOne = String(checkSum);
+			Serial.write(checkSum);
 
 		}
 	}

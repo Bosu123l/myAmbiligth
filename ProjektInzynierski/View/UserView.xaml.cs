@@ -163,8 +163,8 @@ namespace ProjektInzynierski.View
             _resolution = System.Windows.SystemParameters.PrimaryScreenWidth.ToString() + " x " + System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
             int index = 0;
 
-            //     _portCom = new PortCom("COM5", 115200);
-            //    _portCom.OpenPort();
+                 _portCom = new PortCom("COM5", 115200);
+                _portCom.OpenPort();
 
             _timer.Start();
         }
@@ -172,7 +172,7 @@ namespace ProjektInzynierski.View
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             ColorOfScreen = _colorCalculate.Calculate();
-         //   _portCom.SendColors(ColorOfScreen);
+           _portCom.SendColors(ColorOfScreen);
         }
 
         protected void NotifyPropertyChanged(string propertyName)

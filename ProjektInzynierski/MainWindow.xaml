@@ -7,7 +7,7 @@
 
         mc:Ignorable="d"
 
-        Title="Ambilight"  MinHeight="450" MinWidth="600" Height="450" Width="600" StateChanged="Window_StateChanged" Icon="Resouces/group.png">
+        Title="Ambilight"  MinHeight="450" MinWidth="600" Height="450" Width="600" StateChanged="Window_StateChanged" Icon="Resouces/group.png" Closing="Window_Closing">
     <Grid>
        <local:UserView></local:UserView>
     </Grid>

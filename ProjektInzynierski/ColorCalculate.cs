@@ -194,6 +194,7 @@ namespace ProjektInzynierski
 
         }
 
+       
         public List<string> Calculate()
         {
 
